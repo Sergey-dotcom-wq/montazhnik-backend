@@ -1,0 +1,19 @@
+# Секреты — не в репозиторий
+.env
+*.p12
+*.pem
+*.key
+*.crt
+pki/
+cmd/gen_cert/
+
+# Сборка и артефакты
+bin/
+server.exe
+server.log
+server.err
+*.exe
+
+# Логи
+*.log
+*.err

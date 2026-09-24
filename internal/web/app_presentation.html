@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Монтажник Связи 1.2 — Презентация</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif; background:#0d1117; color:#e6edf3; line-height:1.5; }
+  .wrap { max-width:1100px; margin:0 auto; padding:24px 16px; }
+  h1 { font-size:2.2rem; margin-bottom:8px; }
+  .subtitle { font-size:1.05rem; color:#8b949e; margin-bottom:20px; }
+  .btn-group { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
+  .btn { display:inline-block; padding:10px 18px; border-radius:8px; text-decoration:none; font-size:1rem; }
+  .btn-primary { background:#238636; color:#fff; }
+  .btn-secondary { background:#21262d; color:#e6edf3; border:1px solid #30363d; }
+  section { margin-bottom:28px; }
+  section.alt { background:#161b22; border-radius:14px; padding:20px; }
+  h2 { font-size:1.5rem; margin-bottom:10px; }
+  .lead { font-size:1.05rem; color:#c9d1d9; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .card { background:#161b22; border:1px solid #30363d; border-radius:14px; padding:16px; }
+  .card .icon { font-size:2rem; margin-bottom:8px; }
+  .card h3 { font-size:1.15rem; margin-bottom:6px; }
+  .card p { font-size:.95rem; color:#8b949e; }
+  table.comp { width:100%; border-collapse:collapse; font-size:.95rem; }
+  table.comp th, table.comp td { border:1px solid #30363d; padding:8px 10px; text-align:left; }
+  table.comp th { background:#21262d; }
+  .yes { color:#3fb950; } .no { color:#f85149; } .partial { color:#d29922; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .stat { background:#161b22; border:1px solid #30363d; border-radius:12px; padding:16px; text-align:center; }
+  .stat .num { font-size:1.8rem; font-weight:800; color:#58a6ff; }
+  .stat .lbl { font-size:.9rem; color:#8b949e; margin-top:6px; }
+  footer { text-align:center; color:#8b949e; font-size:.9rem; padding:20px 0; }
+  img { max-width:100%; border-radius:8px; }
+  .flow { display:flex; flex-wrap:wrap; gap:16px; justify-content:center; align-items:center; text-align:center; }
+  .step { flex:1; min-width:120px; }
+  .step .ic { font-size:2.5rem; margin-bottom:8px; }
+  .step .nm { font-weight:600; font-size:0.95rem; }
+  .step .ds { font-size:0.8rem; color:#94a3b8; }
+  .arrow { font-size:2rem; color:#38bdf8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Монтажник Связи</h1>
+<p class="subtitle">Единая цифровая среда для монтажных бригад: учёт материалов, работ, транспорта, зарплаты и партнёрская программа</p>
+    <div class="btn-group">
+      <a href="http://192.168.0.10:8080" class="btn btn-primary" target="_blank">🚀 Открыть систему</a>
+      <a href="http://192.168.0.10:8080/api/v1" class="btn btn-secondary" target="_blank">🔗 API в действии</a>
+      <a href="http://192.168.0.10:8080/" class="btn btn-secondary" target="_blank">📊 Веб-админка</a>
+    </div>
+
+<!-- Что это -->
+<section>
+  <h2>Что такое «Монтажник Связи»?</h2>
+  <p class="lead">Единая система учёта работ, материалов, транспорта и начислений с криптографической гарантией достоверности данных (SHA-256, UTC).</p>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">📦</div>
+      <h3>Склад и поступления</h3>
+      <p>Приход материалов с поставщиком, изготовителем, НДС, статусом оплаты. Каждое движение — криптографическое событие с SHA-256 хешем.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🛠️</div>
+      <h3>Наряды и работы</h3>
+      <p>Наряд-задание приходит мастеру автоматически: адрес, работы, нормативы, расценки. Фиксация через QR-скан, фото с геотегом, UTC-время.</p>
+    </div>
+    <div class="card">
+      <div class="icon">💰</div>
+      <h3>Зарплата и начисления</h3>
+      <p>Сумма = норматив × ставка × коэффициент. Мастер видит начисление сразу. Готовые документы в 1С и Excel для бухгалтера.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔗</div>
+      <h3>STP-матрица (блокчейн)</h3>
+      <p>Каждое событие связано с предыдущим через хеш. Подделать историю невозможно — цепочка проверяется в один клик даже через 10 лет.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🚗</div>
+      <h3>Карты, транспорт, ГСМ</h3>
+      <p>Карта заявок и маршрутов, учёт пробега и топлива, путевые листы, Wi-Fi машины с усилителями — связь между бригадами без радиосвязи.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🤝</div>
+      <h3>Партнёрская программа</h3>
+      <p>До 50% от подписки партнёрам. Регистрация, начисления и выплаты автоматически. Агентский договор, налоги по НК РФ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Как заполняются данные -->
+<section>
+  <h2>Как заполняются данные</h2>
+  <p class="lead">Человек только сканирует или выбирает из списка. Всё остальное — без участия человека.</p>
+
+  <div style="background:#1e293b;border:1px solid #334155;border-radius:16px;padding:32px;margin-bottom:32px;">
+    <div class="flow">
+      <div class="step"><div class="ic">📱</div><div class="nm">Сканирование</div><div class="ds">QR/SKU материала</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="ic">🕒</div><div class="nm">Авто-время</div><div class="ds">UTC, нельзя изменить</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="ic">💰</div><div class="nm">Авто-цена</div><div class="ds">из прайс-листа</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="ic">🧾</div><div class="nm">Авто-НДС</div><div class="ds">0/10/20%</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="ic">🔗</div><div class="nm">SHA-256 хеш</div><div class="ds">криптоподпись</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="ic">💾</div><div class="nm">Сохранение</div><div class="ds">локальная БД + сервер</div></div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div class="card">
+      <div style="font-size:1.5rem;margin-bottom:8px;">📋</div>
+      <h3>Пример: приход кабеля</h3>
+      <p style="font-size:0.85rem;color:#94a3b8;margin-bottom:8px;">Что делает человек:</p>
+      <ol style="font-size:0.85rem;color:#e2e8f0;padding-left:20px;">
+        <li>Выбирает материал из списка</li>
+        <li>Вводит количество (100 м)</li>
+        <li>Нажимает «Сохранить»</li>
+      </ol>
+      <p style="font-size:0.85rem;color:#94a3b8;margin-top:8px;margin-bottom:8px;">Что делает система автоматически:</p>
+      <ul style="font-size:0.85rem;color:#22c55e;padding-left:20px;">
+        <li>Ставит время UTC</li>
+        <li>Подтягивает цену из справочника</li>
+        <li>Считает НДС 20%</li>
+        <li>Формирует SHA-256 хеш</li>
+        <li>Пишет в локальную базу и синхронизирует на сервер</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div style="font-size:1.5rem;margin-bottom:8px;">📸</div>
+      <h3>Скриншот прихода</h3>
+      <a href="screenshot_receipt.png" target="_blank">
+        <img src="screenshot_receipt.png" alt="Скриншот формы поступления" style="width:100%;border-radius:8px;border:1px solid #334155;display:block;">
+      </a>
+      <p style="font-size:0.75rem;color:#64748b;margin-top:6px;text-align:center;">Нажмите для увеличения</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;border-left:4px solid #22c55e;">
+    <p style="font-size:0.9rem;color:#94a3b8;">
+      💡 <strong style="color:#e2e8f0;">Никакого ручного ввода времени, цен, НДС.</strong>
+      Человек не может подделать данные — только подтвердить или отклонить.
+      Каждое действие фиксируется криптографически и не подлежит изменению.
+    </p>
+  </div>
+</section>
+
+<!-- Партнёрская программа -->
+<section class="alt">
+  <h2>Партнёрская программа: до 50% от подписок</h2>
+  <p class="lead">Масштабирование без роста ФОТ — партнёры сами приводят подписчиков</p>
+  <div style="background:#1e293b;border:1px solid #334155;border-radius:16px;padding:24px;margin-bottom:20px;">
+    <div class="flow">
+      <div class="step"><div class="ic">📝</div><div class="nm">Регистрация</div><div class="ds">ФИО, ИНН, статус — проверка через API ФНС</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="ic">🔗</div><div class="nm">Уникальная ссылка</div><div class="ds">промокод для привлечения</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="ic">💳</div><div class="nm">Оплата подписки</div><div class="ds">подписчик платит</div></div>
+      <div class="arrow">→</div>
+      <div class="step"><div class="ic">💸</div><div class="nm">Автовыплата 50%</div><div class="ds">на счёт партнёра</div></div>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>Юридическая чистота</h3><p>Агентский договор / публичная оферта. Выплаты — расходы компании (счёт 44/26), не личный доход разработчика.</p></div>
+    <div class="card"><h3>Налоги — автоматически</h3><p>Физлица без статуса — компания налоговый агент по НДФЛ 13/15%. ИП и самозанятые платят сами.</p></div>
+    <div class="card"><h3>Документы для банка</h3><p>Реестр выплат, акты, назначение платежа «Выплата агентского вознаграждения по договору №…».</p></div>
+  </div>
+</section>
+
+<!-- Учёт зарплаты -->
+<section>
+  <h2>Индивидуальный заработок — прозрачно</h2>
+  <p class="lead">Каждый мастер видит свои начисления, бухгалтер — готовую ведомость</p>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">👷</div>
+      <h3>Личный кабинет мастера</h3>
+      <p>Автовход по токенам. Своя страница с начислениями за каждую работу. Формула: норматив × ставка × коэффициент. Форма защищена от изменений.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧮</div>
+      <h3>Авторасчёт</h3>
+      <p>Сумма начисления видна мастеру сразу после подтверждения диспетчером. Нет споров «потом посчитаем».</p>
+    </div>
+    <div class="card">
+      <div class="icon">📑</div>
+      <h3>Для бухгалтера</h3>
+      <p>Готовые данные из форм, перенос в 1С или Excel. Авторасчёт НДФЛ и взносов. Выгрузка реестра АВР с криптоподписью.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Преимущества -->
+<section class="alt">
+  <div style="max-width:1100px;margin:0 auto;">
+    <h2>Ключевые преимущества</h2>
+    <p class="lead">Что отличает систему от традиционного учёта в Excel или 1С</p>
+    <table class="comp">
+      <tr><th>Критерий</th><th>Обычный учёт</th><th>Монтажник Связи</th></tr>
+      <tr><td>Криптографическая цепочка</td><td class="no">✗ Можно отредактировать</td><td class="yes">✓ SHA-256, подлог невозможен</td></tr>
+      <tr><td>Привязка к месту и времени</td><td class="no">✗ Ручной ввод</td><td class="yes">✓ GPS + авто-время UTC</td></tr>
+      <tr><td>Наряды и авторасчёт зарплаты</td><td class="no">✗ Табель вручную</td><td class="yes">✓ Сумма = норматив × ставка × коэффициент</td></tr>
+      <tr><td>Карты, транспорт, ГСМ</td><td class="no">✗ Отдельные программы</td><td class="yes">✓ В одном контуре, путевые листы</td></tr>
+      <tr><td>Партнёрская программа</td><td class="no">✗ Нет</td><td class="yes">✓ До 50% от подписок автоматически</td></tr>
+      <tr><td>Статус оплаты</td><td class="no">✗ Не отслеживается</td><td class="yes">✓ Переключается в карточке</td></tr>
+      <tr><td>НДС</td><td class="partial">~ Вручную</td><td class="yes">✓ Автоматически, 0/10/20%</td></tr>
+      <tr><td>Экспорт в Excel / 1С</td><td class="yes">✓ Есть</td><td class="yes">✓ Готовые документы и ведомости</td></tr>
+      <tr><td>Работа без интернета</td><td class="partial">~ Ограниченно</td><td class="yes">✓ Полный офлайн + синхронизация</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Архитектура -->
+<section>
+  <h2>Архитектура</h2>
+  <p class="lead">Три уровня, которые образуют замкнутый контур доверия</p>
+  <div class="grid">
+    <div class="card" style="border-left: 4px solid #38bdf8;">
+      <h3>🔵 STP-матрица</h3>
+      <p>Ядро системы. Хранит цепочку событий с хешами. Каждое событие — звено, которое нельзя удалить или изменить. Проверка целостности за 1 запрос.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid #22c55e;">
+      <h3>🟢 Цифровой двойник</h3>
+      <p>Визуализация движения материалов и работ: склад → монтаж. Точки на карте, хеши, статусы. Цвет меняется в зависимости от события.</p>
+    </div>
+    <div class="card" style="border-left: 4px solid #f59e0b;">
+      <h3>🟡 Финансовый слой</h3>
+      <p>Начисления, НДС, платёжные реестры. Авторасчёт зарплаты и партнёрских выплат с криптографической привязкой к событию.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Цифры -->
+<section class="alt">
+  <div style="max-width:1100px;margin:0 auto;">
+    <h2>Эффект от внедрения</h2>
+    <div class="stats">
+      <div class="stat"><div class="num">−80%</div><div class="lbl">Ручного ввода данных</div></div>
+      <div class="stat"><div class="num">−90%</div><div class="lbl">Ошибок при оформлении</div></div>
+      <div class="stat"><div class="num">70–80%</div><div class="lbl">Экономии времени бухгалтерии</div></div>
+      <div class="stat"><div class="num">до 50%</div><div class="lbl">Партнёрам от подписок</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Безопасность -->
+<section>
+  <h2>Безопасность и неизменяемые журналы</h2>
+  <p class="lead">Любая правка задним числом ломает цепочку хешей — это юридически значимая доказательная база</p>
+  <div class="grid">
+    <div class="card"><h3>📖 Журнал операций</h3><p>Все движения ТМЦ и работ. Ключ: SHA-256 + UTC.</p></div>
+    <div class="card"><h3>📋 Журнал нарядов</h3><p>Жизненный цикл задач с привязкой к материалам и фото.</p></div>
+    <div class="card"><h3>🔐 Журнал криптоцелостности</h3><p>Периодическая проверка хешей. Несовпадение — сигнал для ИБ.</p></div>
+    <div class="card"><h3>📡 Журнал синхронизации</h3><p>Кто, когда и каким каналом передал данные (4G, Wi-Fi машины).</p></div>
+  </div>
+</section>
+
+<!-- Контакты и кнопки -->
+<section style="text-align:center;">
+  <h2>Попробовать сейчас</h2>
+  <p class="lead" style="margin:0 auto 24px;">Система работает на вашем компьютере и синхронизируется с сервером в локальной сети.</p>
+  <div class="btn-group">
+    <a href="http://192.168.0.10:8080" class="btn btn-primary" target="_blank">🚀 Открыть систему</a>
+    <a href="http://192.168.0.10:8080/" class="btn btn-secondary" target="_blank">📊 Веб-админка</a>
+  </div>
+  <p style="margin-top:24px;color:#94a3b8;font-size:0.9rem;">
+    Или откройте в браузере: <code style="background:#1e293b;padding:4px 8px;border-radius:6px;">http://192.168.0.10:8080</code>
+  </p>
+</section>
+
+<footer>
+  <p>Монтажник Связи · версия 1.2</p>
+  <p>Учёт материалов, работ, транспорта, зарплаты и партнёрская программа</p>
+</footer>
+
+</body>
+</html>

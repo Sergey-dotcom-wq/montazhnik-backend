@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МОНТАЖНИК СВЯЗИ — предложение</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    overflow: hidden;
+  }
+  .deck { height: 100vh; position: relative; }
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center;
+    padding: 6vh 8vw;
+    opacity: 0; transform: translateX(40px);
+    transition: opacity .5s ease, transform .5s ease;
+    pointer-events: none;
+  }
+  .slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+  .kicker { font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; color: #58a6ff; margin-bottom: 1.2rem; }
+  h1 { font-size: clamp(2rem, 6vw, 4.2rem); line-height: 1.1; margin-bottom: 1.5rem; }
+  h2 { font-size: clamp(1.6rem, 4.5vw, 3rem); line-height: 1.15; margin-bottom: 1.5rem; }
+  p.lead { font-size: clamp(1.1rem, 2.6vw, 1.7rem); color: #c9d1d9; max-width: 60rem; line-height: 1.5; }
+  .accent { color: #58a6ff; }
+  .green { color: #3fb950; }
+  .red { color: #f85149; }
+  .gold { color: #d29922; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; width: 100%; max-width: 70rem; margin-top: 1rem; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 14px; padding: 1.6rem 1.4rem; }
+  .card .icon { font-size: 2.2rem; margin-bottom: .8rem; }
+  .card h3 { font-size: 1.2rem; margin-bottom: .5rem; }
+  .card p { font-size: .95rem; color: #8b949e; line-height: 1.4; }
+  .price-big { font-size: clamp(2.4rem, 8vw, 5rem); font-weight: 800; }
+  .price-old { text-decoration: line-through; color: #8b949e; font-size: clamp(1.4rem, 4vw, 2.4rem); }
+  .price-new { color: #3fb950; }
+  .guarantee { background: #161b22; border: 2px solid #3fb950; border-radius: 16px; padding: 2rem; max-width: 50rem; }
+  .guarantee p { font-size: clamp(1.1rem, 2.4vw, 1.5rem); line-height: 1.5; }
+  .cta { font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 700; color: #58a6ff; }
+  .nav {
+    position: fixed; bottom: 2vh; left: 0; right: 0;
+    display: flex; justify-content: center; gap: 1rem; z-index: 10;
+  }
+  .nav button {
+    background: #21262d; color: #e6edf3; border: 1px solid #30363d;
+    border-radius: 8px; padding: .6rem 1.2rem; font-size: 1rem; cursor: pointer;
+  }
+  .nav button:hover { background: #30363d; }
+  .dots { position: fixed; top: 2vh; left: 0; right: 0; display: flex; justify-content: center; gap: .6rem; z-index: 10; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #30363d; cursor: pointer; }
+  .dot.active { background: #58a6ff; }
+  .hint { position: fixed; bottom: 2vh; right: 2vw; color: #484f58; font-size: .8rem; z-index: 10; }
+  ul.list { text-align: left; max-width: 50rem; font-size: clamp(1.05rem, 2.4vw, 1.5rem); line-height: 1.7; }
+  ul.list li { margin-bottom: .6rem; }
+</style>
+</head>
+<body>
+<div class="dots" id="dots"></div>
+
+<div class="deck" id="deck">
+
+  <!-- 1. Титул -->
+  <section class="slide active">
+    <div class="kicker">Предложение</div>
+    <h1>МОНТАЖНИК<br>СВЯЗИ</h1>
+    <p class="lead">Склад, бригады и деньги —<br>под полным контролем.</p>
+  </section>
+
+  <!-- 2. Проблема -->
+  <section class="slide">
+    <div class="kicker">Проблема</div>
+    <h2>Сколько вы теряете <span class="red">каждый месяц</span>?</h2>
+    <div class="grid">
+      <div class="card"><div class="icon">📦</div><h3>Материалы</h3><p>«Куда-то деваются» — неучтённые выдачи и потери</p></div>
+      <div class="card"><div class="icon">👷</div><h3>Бригады</h3><p>Кто, где и что делал — непонятно, всё «на глаз»</p></div>
+      <div class="card"><div class="icon">💰</div><h3>Оплата</h3><p>Споры «сколько ты просидел» вместо честного расчёта</p></div>
+      <div class="card"><div class="icon">📊</div><h3>Отчёты</h3><p>Собирать всё вручную — часы работы</p></div>
+    </div>
+  </section>
+
+  <!-- 3. Решение -->
+  <section class="slide">
+    <div class="kicker">Решение</div>
+    <h2>Всё в одной программе</h2>
+    <div class="grid">
+      <div class="card"><div class="icon">📦</div><h3>Склад под контролем</h3><p>Каждая единица на учёте: поступление, выдача, возврат, демонтаж</p></div>
+      <div class="card"><div class="icon">👷</div><h3>Бригады на виду</h3><p>Кто, где, когда и что делал — всегда видно</p></div>
+      <div class="card"><div class="icon">💰</div><h3>Оплата по факту</h3><p>За метры и стыки, а не за часы. Споры исчезают</p></div>
+      <div class="card"><div class="icon">📊</div><h3>Отчёт в Excel</h3><p>Вся картина по складу и деньгам — за одну кнопку</p></div>
+    </div>
+  </section>
+
+  <!-- 4. Забота о сервисе -->
+  <section class="slide">
+    <div class="kicker">Забота о вашем сервисе</div>
+    <h2>Мы работаем на уровне<br><span class="accent">профессионалов</span></h2>
+    <p class="lead">Это не «сделали и забыли». Мы <span class="green">сопровождаем вас</span>: отвечаем на вопросы, дорабатываем под ваши задачи, следим, чтобы всё работало.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">🤝</div><h3>Поддержка</h3><p>Отвечаем, помогаем, обучаем — вы не остаётесь один на один с программой</p></div>
+      <div class="card"><div class="icon">🛠️</div><h3>Доработки</h3><p>Подстраиваем под то, как работаете именно вы</p></div>
+      <div class="card"><div class="icon">📈</div><h3>Развитие</h3><p>Программа растёт вместе с вашим бизнесом</p></div>
+    </div>
+  </section>
+
+  <!-- 5. Работает на Mac -->
+  <section class="slide">
+    <div class="kicker">Работает везде</div>
+    <h2>Вам не нужен Mac,<br>чтобы работать <span class="accent">на Mac</span></h2>
+    <p class="lead">Откройте браузер на любом устройстве —<br>и всё работает: <span class="green">Mac, iPhone, iPad, Android, Windows</span>.</p>
+    <p class="lead" style="margin-top:1rem; font-size:1.1rem; color:#8b949e;">Без установки, без покупки Mac, без подписок. Все данные — в одной базе.</p>
+  </section>
+
+  <!-- 6. Цена -->
+  <section class="slide">
+    <div class="kicker">Цена</div>
+    <h2>Сколько это стоит?</h2>
+    <p class="lead">Такое решение на рынке стоит</p>
+    <div class="price-old">20 000 ₽</div>
+    <p class="lead" style="margin:1rem 0;">Я отдаю его вам за</p>
+    <div class="price-big price-new">3 000 ₽</div>
+    <p class="lead" style="margin-top:1rem; font-size:1.1rem; color:#8b949e;">Один раз. Навсегда. Без подписок.</p>
+    <div class="guarantee" style="margin-top:1.5rem; border-color:#58a6ff;">
+      <p><span class="accent">Пожизненно бесплатно</span> — все обновления и дополнения для вас.</p>
+    </div>
+  </section>
+
+  <!-- 7. Гарантия -->
+  <section class="slide">
+    <div class="kicker">Без риска</div>
+    <div class="guarantee">
+      <h2 style="margin-bottom:1rem;">Гарантия возврата</h2>
+      <p>Если через <span class="green">30 дней</span> вы не увидите, что программа экономит вам больше, чем стоит — <span class="green">я верну все деньги</span>. Без вопросов.</p>
+    </div>
+    <p class="lead" style="margin-top:1.5rem;">Вы ничем не рискуете. Худший случай — вы вернёте 3 000 ₽. Лучший — перестанете терять деньги каждый месяц.</p>
+  </section>
+
+  <!-- 8. Срочность -->
+  <section class="slide">
+    <div class="kicker">Почему так дёшево</div>
+    <h2>Это моя реклама —<br><span class="gold">за ваш счёт</span></h2>
+    <p class="lead">Я хочу, чтобы вы увидели результат и порекомендовали меня другим бригадам. Поэтому отдаю решение за 15% от цены.</p>
+    <p class="lead" style="margin-top:1rem; font-size:1.1rem; color:#8b949e;">Цена 3 000 ₽ — пока я набираю первых клиентов. Дальше — обычные 20 000 ₽.</p>
+  </section>
+
+  <!-- 9. Призыв -->
+  <section class="slide">
+    <div class="kicker">Действие</div>
+    <h2>Решите сегодня —<br>и завтра всё под контролем</h2>
+    <p class="cta" style="margin:1.5rem 0;">Покажу всё вживую за 10 минут.</p>
+    <p class="lead">Если не понравится — вы ничего не теряете.</p>
+  </section>
+
+</div>
+
+<div class="nav">
+  <button id="prev">← Назад</button>
+  <button id="next">Далее →</button>
+</div>
+<div class="hint">← → для навигации</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dotsWrap = document.getElementById('dots');
+  let cur = 0;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => go(i));
+    dotsWrap.appendChild(d);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function go(i) {
+    cur = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach((s, idx) => s.classList.toggle('active', idx === cur));
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === cur));
+  }
+  document.getElementById('next').addEventListener('click', () => go(cur + 1));
+  document.getElementById('prev').addEventListener('click', () => go(cur - 1));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') go(cur + 1);
+    if (e.key === 'ArrowLeft') go(cur - 1);
+  });
+  // swipe
+  let sx = 0;
+  document.addEventListener('touchstart', e => sx = e.touches[0].clientX);
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 50) go(cur + (dx < 0 ? 1 : -1));
+  });
+</script>
+</body>
+</html>
