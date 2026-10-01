@@ -16,6 +16,10 @@ var matrixPolicy = map[string][]string{
 	"POST /api/v1/auth/delete-account":        {"admin", "dispatcher", "installer", "accountant", "partner"},
 	"POST /api/v1/subscription/activate":      {"admin", "dispatcher", "installer", "accountant", "partner"},
 
+	// === ИИ-ассистент (GigaChat) ===
+	"POST /api/v1/ai/ask":                     {"admin", "dispatcher", "installer", "accountant", "partner"},
+	"POST /api/v1/ai/analytics":               {"admin", "dispatcher"},
+
 	// === Администрирование ===
 	"GET /api/v1/admin/payments":              {"admin", "dispatcher"},
 	"GET /api/v1/admin/payments/process-payouts": {"admin", "dispatcher"},

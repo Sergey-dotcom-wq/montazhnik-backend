@@ -101,6 +101,11 @@ func NewApp(ctx context.Context, cfg Config) (*App, error) {
 	// проверяется на все защищённые маршруты единообразно.
 	hive := newGatewayHive()
 
+	// GigaChat-клиент (LLM): используется для /api/v1/ai/ask.
+	gigaClient := NewGigaChatClient()
+	// ИИ-аналитик по бизнес-данным: /api/v1/ai/analytics.
+	analyticsService := NewAnalyticsService(dbpool, gigaClient)
+
 	api := router.Group("/api/v1")
 	{
 		// Аутентификация (публичные маршруты)
@@ -163,6 +168,9 @@ func NewApp(ctx context.Context, cfg Config) (*App, error) {
 protected := api.Group("")
 	protected.Use(authMiddleware(authService), matrixGatewayMiddleware(hive))
 		{
+			// ИИ-ассистент: консультации и аналитика через GigaChat (требует JWT).
+			protected.POST("/ai/ask", gigaClient.GinAsk)
+			analyticsService.RegisterRoutes(protected)
 			// Активация подписки идёт под JWT: привязываем пользователя из токена
 			// к реферальной выплате партнёру (см. SubscriptionHandler.Activate).
 			protected.POST("/subscription/activate", subscriptionHandler.Activate)
